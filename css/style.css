@@ -1,29 +1,73 @@
-.navbar ul {
-  list-style-type: none;
+a:focus, input:focus, button:focus {
+  outline: 0;
+}
+
+.navbar {
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #81a6e2;
 }
 
-.navbar li a {
+.navbar a {
   float: left;
   display: block;
   color: white;
   text-align: center;
   padding: 20px;
   text-decoration: none;
+  transition: all .5s ease-in-out;
 }
 
-.navbar li a:hover {
-  transition-delay: 0s;
-  transition-duration: 0.75s;
-  transition-timing-function: ease;
-  background-color: #6788bc;
+.navbar a.toggle {
+  display: none;
 }
 
-.navbar li a:focus {
-  outline: 0;
+.navbar a:hover {
+  transform: scale(1.4);
+}
+
+@media (max-width: 600px) {
+
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+
+  .navbar a.toggle {
+    float: right;
+    display: block;
+    padding-top: 17px;
+  }
+
+  .navbar a:hover {
+    transform: none;
+  }
+
+  .navbar.mobile {
+    position: relative;
+  }
+
+  .navbar.mobile a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .navbar.mobile a.toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navbar.mobile a:not(:first-child) {
+    padding: 10px 0px 10px 20px;
+    background-color: gray;
+  }
+
+  .navbar.mobile a:last-child {
+    background-color: #81a6e2;
+    padding: 17px 20px 20px 20px;
+  }
 }
 
 .location-entry {
@@ -47,8 +91,4 @@
   border-left: none;
   border-radius: 0 15px 15px 0;
   padding-right: 10px;
-}
-
-.location-entry input:focus, button:focus {
-  outline: 0;
 }

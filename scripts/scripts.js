@@ -6,6 +6,15 @@ function getForecast() {
   alert("TODO: grab forecast from API")
 }
 
+function toggleMenu() {
+  var menu = $("navbar");
+  if (menu.className === "navbar") {
+    menu.className += " mobile";
+  } else {
+    menu.className = "navbar";
+  }
+}
+
 window.onload = function() {
   $("location").onfocus = function() {
     $("location").setAttribute("style", "border-color: green;")

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>weathr.app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script src="scripts/scripts.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">weathr.app</a></li>
-      <li><a href="#">7 day forecast</a></li>
-      <li><a href="#">about</a></li>
-    </ul>
+  <nav class="navbar" id="navbar">
+    <a class="active" href="#">weathr.app</a>
+    <a href="#">current forecast</a>
+    <a href="#">5 day forecast</a>
+    <a class="toggle" onclick="toggleMenu()" href="javascript:void(0);">☰</a>
   </nav>
   <main>
     <div class="location-entry">
@@ -21,4 +21,4 @@
     </div>
   </main>
 </body>
-<html>
+</html>
