@@ -2,10 +2,6 @@ var $ = function(id) {
   return document.getElementById(id);
 }
 
-function getForecast() {
-  alert("TODO: grab forecast from API")
-}
-
 function toggleMenu() {
   var menu = $("navbar");
   if (menu.className === "navbar") {
@@ -15,14 +11,14 @@ function toggleMenu() {
   }
 }
 
-window.onload = function() {
-  $("location").onfocus = function() {
-    $("location").setAttribute("style", "border-color: green;")
-    $("location-entry-submit").setAttribute("style", "border-color: green;")
-  };
-
-  $("location").onblur = function() {
-    $("location").setAttribute("style", "border-color: #81a6e2;")
-    $("location-entry-submit").setAttribute("style", "border-color: #81a6e2;")
-  };
+/*
+Triggers the modal with a programmed message and displays it to the user.
+*/
+function displayModal(message) {
+  var modal = $('modal');
+  modal.style.display = "block";
+  $("message").innerHTML = message;
+  $("close").onclick = function() {
+      modal.style.display = "none";
+  }
 }

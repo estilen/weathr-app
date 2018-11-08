@@ -6,18 +6,36 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="scripts/scripts.js"></script>
+  <script src="scripts/weather.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </head>
 <body>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <p id="message"></p>
+      <span class="close" id="close">&times</span>
+    </div>
+  </div>
   <nav class="navbar" id="navbar">
     <a href="#">weathr.app</a>
     <a href="#">weather forecast</a>
     <a href="#">about</a>
-    <a class="toggle" onclick="toggleMenu()" href="javascript:void(0);">☰</a>
+    <a class="toggle" id="toggle" href="javascript:void(0);">☰</a>
   </nav>
+  <header>
+    <p>weathr.app provides a reliable and up to date forecast for your city</p>
+  </header>
   <main>
-    <div class="location-entry">
+    <div class="location-entry-container">
       <input type="text" id="location" placeholder="enter location">
-      <button onclick="getForecast()" id="location-entry-submit">get forecast</button>
+      <input type="hidden" id="units" value="metric">
+      <button id="location-entry-submit">get forecast</button>
+    </div>
+    <div class="forecast-header">
+      <p id="forecast-header"></p>
+    </div>
+    <div class="canvas-placeholder">
+      <canvas id="temperature-chart"></canvas>
     </div>
   </main>
   <footer>
