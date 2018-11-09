@@ -19,23 +19,29 @@
   <nav class="navbar" id="navbar">
     <a href="#">weathr.app</a>
     <a href="#">weather forecast</a>
-    <a href="#">about</a>
+    <a href="#" id="about">about</a>
     <a class="toggle" id="toggle" href="javascript:void(0);">☰</a>
   </nav>
   <header>
     <p>weathr.app provides a reliable and up to date forecast for your city</p>
   </header>
   <main>
-    <div class="location-entry-container">
-      <input type="text" id="location" placeholder="enter location">
-      <input type="hidden" id="units" value="metric">
-      <button id="location-entry-submit">get forecast</button>
+    <div class="city-entry-container">
+      <input type="text" id="city" placeholder="enter your city">
+      <button id="city-entry-submit">get forecast</button>
+      <label class="switch">
+        <input type="checkbox" id="units">
+        <span class="slider round"></span>
+      </label>
     </div>
     <div class="forecast-header">
       <p id="forecast-header"></p>
     </div>
     <div class="canvas-placeholder">
       <canvas id="temperature-chart"></canvas>
+    </div>
+    <div class="misc-placeholder">
+      <canvas id="misc-chart"></canvas>
     </div>
   </main>
   <footer>
