@@ -1,7 +1,14 @@
+/*
+Shorthand helper function.
+*/
 var $ = function(id) {
   return document.getElementById(id);
 }
 
+
+/*
+Adds the 'mobile' class to the navbar upon menu press.
+*/
 function toggleMenu() {
   if (navbar.className === "navbar") {
     navbar.className += " mobile";
@@ -44,6 +51,9 @@ window.onload = function() {
 }
 
 window.onclick = function(event) {
+  /*
+  If user clicks anywhere outside the modal, the modal will be closed.
+  */
   if (event.target == modal) {
     modal.style.display = "none";
   }

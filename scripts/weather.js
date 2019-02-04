@@ -1,3 +1,6 @@
+/*
+An object responsible of creation of the request URL.
+*/
 var ApiUrl = function(city, amountOfDays, units) {
   this.city = city,
   this.amountOfDays = amountOfDays,
@@ -16,6 +19,10 @@ var ApiUrl = function(city, amountOfDays, units) {
   }
 }
 
+/*
+Creates a "&" separated string, containing the query paramaters of the request
+URL.
+*/
 ApiUrl.prototype.attachParameters = function(params) {
   var query = [];
   for (var p in params) {
@@ -24,6 +31,11 @@ ApiUrl.prototype.attachParameters = function(params) {
   return query.join('&');
 }
 
+/*
+Converts the dates returned from the API into days of the week.
+>> "2018-11-09"
+Friday
+*/
 function convertDates(dates) {
   let week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   let convertedDates = [];
@@ -35,6 +47,9 @@ function convertDates(dates) {
   return convertedDates;
 }
 
+/*
+Takes the weather data and injects it into the chart.
+*/
 function displayForecast(forecast) {
   $("forecast-header").innerHTML = "Weather for " + forecast.city + ", " + forecast.country;
   let tempChart = $("temperature-chart").getContext("2d");
@@ -132,6 +147,10 @@ function displayForecast(forecast) {
     });
 }
 
+/*
+Extract the weather data from the XML document and insert it into a JSON.
+Passes the data into the display function.
+*/
 function parseForecast(data, unitsValue) {
   var forecast = {};
   var city = data.getElementsByTagName("name")[0].firstChild.nodeValue;
@@ -169,6 +188,9 @@ function parseForecast(data, unitsValue) {
   displayForecast(forecast);
 }
 
+/*
+Uses an AJAX request to retrieve the XML document from the API.
+*/
 function getXmlResponse(url, callback, unitsValue) {
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
@@ -186,8 +208,11 @@ function getXmlResponse(url, callback, unitsValue) {
   request.send();
 }
 
+/*
+Checks if user entered a city, if not, displays a relevant message to the user.
+Passes user entered information into the URL objects and the AJAX function.
+*/
 function getForecast() {
-  // var city = $("city");
   if (city.value === "") {
     displayModal("Please enter a city.");
   } else {
